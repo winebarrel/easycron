@@ -1,8 +1,6 @@
 # Easycron
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/easycron`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+[EasyCron](https://www.easycron.com/) API Ruby Client.
 
 ## Installation
 
@@ -22,20 +20,44 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```
+require 'uptimerobot'
+require 'pp'
 
-## Development
+client = Easycron::Client.new(token: '...')
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+pp client.list
+#=> {"status"=>"success",
+#    "cron_jobs"=>
+#     [{"cron_job_id"=>"123456",
+#       "cron_job_name"=>"",
+#       "user_id"=>"12345",
+#       "url"=>"http://example.com",
+#       "cron_expression"=>"* * * * *",
+#       "number_failed_time"=>"0",
+#       "engine_occupied"=>"1",
+#       "log_output_length"=>"0",
+#       "email_me"=>"0",
+#       "status"=>"1",
+#       "created"=>"2010-02-03 04:05:06",
+#       "updated"=>"2010-02-03 04:05:06"},
+#       ...
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+response = client.add(
+  cron_expression: '0 0 * * *',
+  url: 'http://example.com',
+  email_me: 0,
+  log_output_length: 0)
 
-## Contributing
+cron_job_id = response['cron_job_id']
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/easycron.
+response = client.edit(
+  cron_expression: '*/5 * * * *',
+  url: 'http://www.example.com',
+  email_me: 0,
+  log_output_length: 0)
+```
 
+## API Reference
 
-## License
-
-The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
+- [API Document - EasyCron.com](https://www.easycron.com/document/)
