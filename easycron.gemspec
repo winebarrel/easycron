@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Genki Sugawara']
   spec.email         = ["sugawara@cookpad.com"]
 
-  spec.summary       = %q{EasyCron API client.}
-  spec.description   = %q{EasyCron API client.}
+  spec.summary       = %q{EasyCron API Ruby Client.}
+  spec.description   = %q{EasyCron API Ruby Client.}
   spec.homepage      = 'https://github.com/winebarrel/easycron'
   spec.license       = 'MIT'
 

@@ -1,5 +1,6 @@
-require "easycron/version"
+require 'faraday'
+require 'faraday_middleware'
 
-module Easycron
-  # Your code goes here...
-end
+require 'easycron/version'
+require 'easycron/client'
+require 'easycron/error'
