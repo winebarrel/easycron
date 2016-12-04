@@ -2,6 +2,8 @@
 
 [EasyCron](https://www.easycron.com/) API Ruby Client.
 
+[![Build Status](https://travis-ci.org/winebarrel/easycron.svg?branch=master)](https://travis-ci.org/winebarrel/easycron)
+
 ## Installation
 
 Add this line to your application's Gemfile:
