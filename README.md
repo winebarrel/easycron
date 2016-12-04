@@ -54,6 +54,7 @@ response = client.add(
 cron_job_id = response['cron_job_id']
 
 response = client.edit(
+  id: cron_job_id,
   cron_expression: '*/5 * * * *',
   url: 'http://www.example.com',
   email_me: 0,
